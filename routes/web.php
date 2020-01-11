@@ -14,7 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+require 'dashboard.php';
 Route::view('/dashboard','dashboard.index')->name('dashboard');
-Route::get('/dashboard/data','DashboardController@index')->name('data');
-Route::get('/dashboard/perhitungan','DashboardController@perhitungan')->name('perhitungan');

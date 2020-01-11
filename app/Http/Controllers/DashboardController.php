@@ -12,8 +12,5 @@ class DashboardController extends Controller
     }
 
 
-    public function perhitungan()
-    {
-        return view('dashboard.perhitungan.index');
-    }
+  
 }

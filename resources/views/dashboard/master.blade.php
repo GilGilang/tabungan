@@ -18,6 +18,7 @@
 
 <head>
   <meta charset="utf-8" />
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
@@ -117,34 +118,7 @@
       <!-- End Navbar -->
       <div class="content">
        @yield('content')
-      <footer class="footer">
-        <div class="container-fluid">
-          <ul class="nav">
-            <li class="nav-item">
-              <a href="javascript:void(0)" class="nav-link">
-                Creative Tim
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="javascript:void(0)" class="nav-link">
-                About Us
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="javascript:void(0)" class="nav-link">
-                Blog
-              </a>
-            </li>
-          </ul>
-          <div class="copyright">
-            ©
-            <script>
-              document.write(new Date().getFullYear())
-            </script> made with <i class="tim-icons icon-heart-2"></i> by
-            <a href="javascript:void(0)" target="_blank">Creative Tim</a> for a better web.
-          </div>
-        </div>
-      </footer>
+
     </div>
   </div>
 
