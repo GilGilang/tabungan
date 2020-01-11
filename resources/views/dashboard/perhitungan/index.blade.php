@@ -10,72 +10,38 @@
               <div class="card-body">
                 <form>
                   <div class="row">
-                    <div class="col-md-5 pr-md-1">
+                    <div class="col-md-3 ">
                       <div class="form-group">
-                        <label>Company</label>
-                        <input type="text" class="form-control" placeholder="Company" value="Creative Code Inc.">
+                        <label>Jumlah Deposit</label>
+                        <input type="text" class="form-control">
                       </div>
                     </div>
-                    <div class="col-md-3 px-md-1">
+                    <div class="col-md-3 ">
                       <div class="form-group">
-                        <label>Username</label>
-                        <input type="text" class="form-control" placeholder="Username" value="michael23">
+                            <label  for="bank">Bank</label>
+                          <select class="custom-select" id="bank">
+                            <option selected>Choose...</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
                       </div>
                     </div>
-                    <div class="col-md-4 pl-md-1">
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" placeholder="mike@email.com">
+                    <div class="col-md-3 ">
+                        <div class="form-group">
+                            <label  for="waktu">Jangka Waktu</label>
+                              <select class="custom-select" id="waktu">
+                                <option selected>Choose...</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                              </select>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6 pr-md-1">
+                    <div class="col-md-3 ">
                       <div class="form-group">
-                        <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="Company" value="Mike">
-                      </div>
-                    </div>
-                    <div class="col-md-6 pl-md-1">
-                      <div class="form-group">
-                        <label>Last Name</label>
-                        <input type="text" class="form-control" placeholder="Last Name" value="Andrew">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label>Address</label>
-                        <input type="text" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-4 pr-md-1">
-                      <div class="form-group">
-                        <label>City</label>
-                        <input type="text" class="form-control" placeholder="City" value="Mike">
-                      </div>
-                    </div>
-                    <div class="col-md-4 px-md-1">
-                      <div class="form-group">
-                        <label>Country</label>
-                        <input type="text" class="form-control" placeholder="Country" value="Andrew">
-                      </div>
-                    </div>
-                    <div class="col-md-4 pl-md-1">
-                      <div class="form-group">
-                        <label>Postal Code</label>
-                        <input type="number" class="form-control" placeholder="ZIP Code">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-8">
-                      <div class="form-group">
-                        <label>About Me</label>
-                        <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                        <label for="bunga">Suku Bunga Efektif</label>
+                        <input type="text" class="form-control" disabled id="bunga">
                       </div>
                     </div>
                   </div>
@@ -86,6 +52,6 @@
               </div>
             </div>
           </div>
-       
+
         </div>
 @endsection
