@@ -42,7 +42,8 @@ class DepositController extends Controller
     {
         if($request->get('modal')){
             $jumlah = str_replace('.','',$request->get('jumlah'));
-            $waktu = str_replace(' bulan','', $request->get('waktu'));
+            // $waktu = str_replace(' bulan','', $request->get('waktu'));
+            $waktu = Deposit::find($request->get('waktu'));
             $bunga = str_replace('%','',$request->get('bunga'));
 
             $count = new hitung;
@@ -53,7 +54,7 @@ class DepositController extends Controller
             $jumlah = "Rp ".number_format($jumlah,2,',','.');
             $hasil = [
                 'jumlah' => $jumlah,
-                'waktu' => $waktu,
+                'waktu' => $waktu->time,
                 'bunga' => $bunga,
                 'bank' => $request->get('bank'),
                 'hasil' => $hitung,

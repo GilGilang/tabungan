@@ -20,7 +20,7 @@
                       <div class="form-group">
                             <label  for="bank">Bank</label>
                           <select style="color:orange;" class="custom-select" id="bank">
-                            <option selected>Choose...</option>
+                            <option selected>Choose</option>
                            @foreach($data as $row)
                           <option value="{{ $row->name }}">{{ $row->name }}</option>
                            @endforeach
@@ -31,8 +31,7 @@
                         <div class="form-group">
                             <label  for="waktu">Jangka Waktu</label>
                               <select style="color:orange;" class="custom-select" id="waktu">
-                                <option selected>Choose...</option>
-
+                                <option selected>Choose</option>
                               </select>
                         </div>
                       </div>
@@ -122,7 +121,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-primary">Simpan</button>
         </div>
     </form>
       </div>
