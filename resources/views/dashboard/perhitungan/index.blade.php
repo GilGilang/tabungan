@@ -106,7 +106,16 @@
                                     <p class="text-dark " id="bungasaja"></p>
                                   </td>
                            </tr>
-
+                           <tr>
+                            <td class="report-subtotal text-left regular-text data-col-half" colspan="2">
+                                <p class="text-dark ">Jangka Waktu</p>
+                              </td>
+                              <td class="report-subtotal text-right" id="assets-type-1-total-data">
+                              </td>
+                              <td class="border-top-thin"  style="padding-left:80px;">
+                                <p class="text-dark" id="jangkawaktu"> </p>
+                              </td>
+                       </tr>
 
                 </tbody>
             </table>
@@ -181,6 +190,7 @@ $(document).ready(function(){
                $('#bungadansaldo').text(response['saldobunga']);
                $('#saldosaja').text(response['jumlah']);
                $('#bungasaja').text(response['hasil']);
+               $('#jangkawaktu').text(response['waktu']+' bulan');
             }
         });
     });
