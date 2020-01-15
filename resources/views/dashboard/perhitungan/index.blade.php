@@ -13,7 +13,7 @@
                     <div class="col-md-3 ">
                       <div class="form-group">
                         <label>Jumlah Deposit</label>
-                        <input type="text" id="jumlah" class="form-control">
+                        <input type="text" id="jumlah" style="color: white;" class="form-control">
                       </div>
                     </div>
                     <div class="col-md-3 ">
@@ -72,7 +72,7 @@
                           <td class="report-subtotal text-right" id="assets-type-1-total-data">
                           </td>
                           <td class="border-top-thin"  style="padding-left:80px;">
-                            <p class="text-dark" id="namabank"> </p>
+                            <p class="text-dark" id="namabank"></p>
                           </td>
                    </tr>
                         <tr >
@@ -82,7 +82,7 @@
                                 <td class="report-subtotal text-right" id="assets-type-1-total-data">
                                 </td>
                                 <td class="border-top-thin" name="hasilnama" style="padding-left:80px;">
-                                    <p class="text-dark" id="bungadansaldo"> </p>
+                                    <p class="text-dark" id="bungadansaldo"></p>
                                 </td>
                          </tr>
                            <tr>
@@ -92,7 +92,7 @@
                                   <td class="report-subtotal text-right" id="assets-type-1-total-data">
                                   </td>
                                   <td class="border-top-thin"  style="padding-left:80px;">
-                                    <p class="text-dark" id="saldosaja"> </p>
+                                    <p class="text-dark" id="saldosaja"></p>
                                   </td>
                            </tr>
                            <tr>
@@ -112,7 +112,7 @@
                               <td class="report-subtotal text-right" id="assets-type-1-total-data">
                               </td>
                               <td class="border-top-thin"  style="padding-left:80px;">
-                                <p class="text-dark" id="jangkawaktu"> </p>
+                                <p class="text-dark" id="jangkawaktu"></p>
                               </td>
                        </tr>
 
@@ -121,7 +121,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Simpan</button>
+          <button type="button" class="btn btn-primary savedata">Simpan</button>
         </div>
     </form>
       </div>
@@ -192,6 +192,32 @@ $(document).ready(function(){
                $('#jangkawaktu').text(response['waktu']+' bulan');
             }
         });
+    });
+
+    $('.savedata').on('click', function(){
+        var name = $('#namabank').text();
+        var total = $('#bungadansaldo').text();
+        var saldo = $('#saldosaja').text();
+        var bunga = $('#bungasaja').text();
+        var waktu = $('#jangkawaktu').text();
+
+       ajax();
+
+       $.ajax({
+          url:'/admin/perhitungan/savedata',
+          method: 'POST',
+          data: {'simpan':1,
+                'name':name,
+                'total':total,
+                'saldo':saldo,
+                'bunga':bunga,
+                'waktu':waktu
+          },
+          success:function(response){
+            $('#exampleModal').modal('hide');
+            alert('data saved');
+          }
+       });
     });
 
 });

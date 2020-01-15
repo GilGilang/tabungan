@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Deposit;
 use App\CustomClass\hitung;
+use App\Data;
 
 class DepositController extends Controller
 {
@@ -61,6 +62,23 @@ class DepositController extends Controller
             ];
 
             return $hasil;
+        }
+    }
+
+
+    public function savedata(Request $request)
+    {
+        if($request->get('simpan')){
+            $data = new Data;
+            $data->name = $request->get('name');
+            $strtotal = str_replace(',00','',str_replace('.','',str_replace('Rp ','',$request->get('total'))));
+            $strsaldo = str_replace(',00','',str_replace('.','',str_replace('Rp ','',$request->get('saldo'))));
+            $strbunga = str_replace(',00','',str_replace('.','',str_replace('Rp ','',$request->get('bunga'))));
+            $data->total = $strtotal;
+            $data->saldo = $strsaldo;
+            $data->bunga = $strbunga;
+            $data->time = $request->get('waktu');
+            $data->save();
         }
     }
 }
