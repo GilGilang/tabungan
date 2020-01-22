@@ -28,11 +28,15 @@
                     </thead>
                     <tbody>
                     @foreach($data as $row)
+                    <?php
+                        $jumlah = number_format($row->saldo,2,',','.');
+                        $bunga = number_format($row->bunga,2,',','.');
+                    ?>
                   <tr>
-                    <td>{{$row->saldo}}</td>
+                    <td>{{$jumlah}}</td>
                     <td>{{$row->name}}</td>
                     <td>{{$row->time}}</td>
-                    <td>{{$row->bunga}}</td>
+                    <td>{{$bunga}}</td>
                   </tr>
                   @endforeach
                     </tbody>
@@ -41,6 +45,6 @@
               </div>
             </div>
           </div>
-      
+
         </div>
 @endsection
