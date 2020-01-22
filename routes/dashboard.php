@@ -2,7 +2,7 @@
 
 Route::group(['prefix' => 'admin'], function () {
 
-Route::get('/data','DashboardController@index')->name('data');
+Route::get('/data','DataController@index')->name('data');
 Route::get('/perhitungan','DepositController@index')->name('perhitungan');
 Route::post('/perhitungan/fetch','DepositController@fetch');
 Route::post('/perhitungan/savedata','DepositController@savedata');
