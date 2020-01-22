@@ -31,6 +31,8 @@
                     <?php
                         $jumlah = number_format($row->saldo,2,',','.');
                         $bunga = number_format($row->bunga,2,',','.');
+                        $jumlah = str_replace(',00','',$jumlah);
+                        $bunga = str_replace(',00','',$bunga);
                     ?>
                   <tr>
                     <td>{{$jumlah}}</td>
