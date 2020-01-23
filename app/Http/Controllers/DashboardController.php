@@ -15,7 +15,7 @@ class DashboardController extends Controller
 
     public function bunga()
     {
-        $data = Data::select('bunga')->get();
+        $data = Data::select('name','bunga')->get();
         $hasil = [];
         $hasil['data']=$data;
        return response()->json($hasil);

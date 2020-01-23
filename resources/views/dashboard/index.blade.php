@@ -383,18 +383,20 @@
         success: function(rtnData) {
             $.each(rtnData, function(dataType, data) {
                 var array = [];
+                var aku = [];
                data.forEach((hasil) =>{
                    var count = hasil['bunga'];
+                   var name = hasil['name'];
 
                    array.push(count);
+                   aku.push(name);
                });
 
-               console.log(array);
             var ctx = document.getElementById('myChart').getContext('2d');
            var config = {
                 type: 'bar',
                 data: {
-                    labels: 'Red',
+                    labels: aku,
                     datasets: [{
                         label: 'Bunga',
                         data: array,
