@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Data;
 
 class DashboardController extends Controller
 {
@@ -12,5 +13,14 @@ class DashboardController extends Controller
     }
 
 
-  
+    public function bunga()
+    {
+        $data = Data::select('bunga')->get();
+        $hasil = [];
+        $hasil['data']=$data;
+       return response()->json($hasil);
+
+    }
+
+
 }

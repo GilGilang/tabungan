@@ -39,14 +39,14 @@
                 </div>
               </div>
               <div class="card-body">
-                <div class="chart-area">
-                  <canvas id="chartBig1"></canvas>
+                <div>
+                    <canvas id="myChart" ></canvas>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="row">
+        {{-- <div class="row">
           <div class="col-lg-4">
             <div class="card card-chart">
               <div class="card-header">
@@ -369,7 +369,60 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
       </div>
+
+@endsection
+@section('script')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"> </script>
+<script>
+    $.ajax({
+        url: "/admin/bunga",
+        type: "GET",
+        dataType: 'json',
+        success: function(rtnData) {
+            $.each(rtnData, function(dataType, data) {
+                var array = [];
+               data.forEach((hasil) =>{
+                   var count = hasil['bunga'];
+
+                   array.push(count);
+               });
+
+               console.log(array);
+            var ctx = document.getElementById('myChart').getContext('2d');
+           var config = {
+                type: 'bar',
+                data: {
+                    labels: 'Red',
+                    datasets: [{
+                        label: 'Bunga',
+                        data: array,
+                        backgroundColor:'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            };
+            chartku = new Chart(ctx, config);
+                window.myPie = chartku;
+
+        });
+        },
+        error: function(rtnData) {
+            alert('error' + rtnData);
+            console.log(rtnData + " asdnjanj");
+        }
+    });
+</script>
 
 @endsection
