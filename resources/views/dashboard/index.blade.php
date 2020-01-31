@@ -8,8 +8,7 @@
               <div class="card-header ">
                 <div class="row">
                   <div class="col-sm-6 text-left">
-                    <h5 class="card-category">Total Shipments</h5>
-                    <h2 class="card-title">Performance</h2>
+                    <h2 class="card-title">Grafik Jumlah Data Deposit</h2>
                   </div>
                   <div class="col-sm-6">
                     <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
@@ -385,20 +384,17 @@
                 var array = [];
                 var aku = [];
                data.forEach((hasil) =>{
-                   var count = hasil['bunga'];
-                   var name = hasil['name'];
+                   var count = hasil['data'];
+                        array.push(count);
 
-                   array.push(count);
-                   aku.push(name);
                });
-
             var ctx = document.getElementById('myChart').getContext('2d');
            var config = {
                 type: 'bar',
                 data: {
-                    labels: aku,
+                    labels: ['0 - 100jt','100jt - 500jt','500jt-1M','1M-Lainnya'],
                     datasets: [{
-                        label: 'Bunga',
+                        label: 'Data',
                         data: array,
                         backgroundColor:'rgba(255, 99, 132, 0.2)',
                         borderColor: 'rgba(255, 99, 132, 1)',

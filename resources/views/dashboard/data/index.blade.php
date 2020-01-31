@@ -24,6 +24,9 @@
                         <th >
                         Bunga
                         </th>
+                        <th>
+                            Action
+                        </th>
                       </tr>
                     </thead>
                     <tbody>
@@ -39,6 +42,10 @@
                     <td>{{$row->name}}</td>
                     <td>{{$row->time}}</td>
                     <td>{{$bunga}}</td>
+                    <td >
+                        <a type="button" class="btn btn-sm btn-info">Edit</a>
+                    <button type="button" class="btn btn-sm btn-danger deletedata" namadata="{{$row->name}}" data-id={{ $row->id }}>Delete</button>
+                      </td>
                   </tr>
                   @endforeach
                     </tbody>
@@ -49,4 +56,39 @@
           </div>
 
         </div>
+@endsection
+@section('script')
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('.deletedata').on('click', function(){
+        var id = $(this).data('id');
+        var name = $(this).attr('namadata');
+        swal({
+            title: "Apa kamu yakin",
+            text: "Apa kamu yakin menghapus data deposit dengan nama "+name,
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+            $.ajax({
+                url:'/admin/data/hapus/'+id,
+                method:'GET',
+                success:function(data){
+                    window.setTimeout(function(){window.location.reload()}, 1000);
+                }
+            });
+
+            }
+            });
+    });
+});
+</script>
 @endsection

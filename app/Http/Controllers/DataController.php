@@ -12,4 +12,10 @@ class DataController extends Controller
         $data = Data::all();
         return view('dashboard.data.index',['data'=>$data]);
     }
+
+    public function delete($id)
+    {
+        $data = Data::find($id)->delete();
+        echo $data;
+    }
 }

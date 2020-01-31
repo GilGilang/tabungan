@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Deposit;
 use App\CustomClass\hitung;
 use App\Data;
+use Auth;
+use App\Range;
 
 class DepositController extends Controller
 {
@@ -79,6 +81,36 @@ class DepositController extends Controller
             $data->bunga = $strbunga;
             $data->time = $request->get('waktu');
             $data->save();
+            if($strsaldo > 0 && $strsaldo <= 100000000 ){
+                $status = Data::where('saldo','>','0')->where('saldo','<=','100000000')->count();
+                $range = Range::find(1);
+                $range->data = $status;
+                $range->save();
+            }elseif($strsaldo > 100000000 && $strsaldo <= 500000000){
+                $range = Range::find(2);
+                $status = Data::where('saldo','>','100000000')->where('saldo','<=','500000000')->count();
+                $range->data = $status;
+                $range->save();
+            }elseif($strsaldo > 500000000 && $strsaldo <= 1000000000){
+                $range = Range::find(3);
+                $status = Data::where('saldo','>','500000000')->where('saldo','<=','1000000000')->count();
+                $range->data = $status;
+                $range->save();
+            }elseif($strsaldo > 1000000000){
+                $range = Range::find(4);
+                $status = Data::where('saldo','>','1000000000')->count();
+                $range->data = $status;
+                $range->save();
+            }
+
+
         }
+    }
+
+    public function check()
+    {
+        $data = Data::where('saldo','>','0')->where('saldo','<=','100000000')->count();
+
+        return $data;
     }
 }

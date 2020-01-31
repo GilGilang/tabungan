@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 require 'dashboard.php';
 Route::view('/dashboard','dashboard.index')->name('dashboard');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
