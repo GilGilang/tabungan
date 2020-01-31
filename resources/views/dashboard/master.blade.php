@@ -82,7 +82,7 @@
                 </ul>
               </li>
               <li class="dropdown nav-item">
-                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                <a href="{{ route('logout') }}" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="photo">
                     <img src="../assets/img/anime3.png" alt="Profile Photo">
                   </div>
@@ -95,7 +95,10 @@
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Profile</a></li>
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a></li>
                   <li class="dropdown-divider"></li>
-                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a></li>
+                  <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                  <li class="nav-link"><button class="nav-item dropdown-item">Log out</button></li>
+                </form>
                 </ul>
               </li>
               <li class="separator d-lg-none"></li>

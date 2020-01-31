@@ -1,7 +1,9 @@
 <?php
 
-Route::group(['prefix' => 'admin'], function () {
-
+Route::group(['prefix' => 'admin',
+            'middleware' => 'auth'
+            ], function () {
+Route::view('/dashboard','dashboard.index')->name('dashboard');
 Route::get('/data','DataController@index')->name('data');
 Route::get('/data/hapus/{id}','DataController@delete');
 Route::get('/perhitungan','DepositController@index')->name('perhitungan');
